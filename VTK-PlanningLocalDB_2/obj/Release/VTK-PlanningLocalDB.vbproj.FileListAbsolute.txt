@@ -1,0 +1,17 @@
+C:\VTK-Plan-LocalDB\VTK-PlanningLocalDB\VTK-PlanningLocalDB\bin\Release\VTK-PlanningLocalDB.exe.config
+C:\VTK-Plan-LocalDB\VTK-PlanningLocalDB\VTK-PlanningLocalDB\bin\Release\VTK-PlanningLocalDB.exe.manifest
+C:\VTK-Plan-LocalDB\VTK-PlanningLocalDB\VTK-PlanningLocalDB\bin\Release\VTK-PlanningLocalDB.application
+C:\VTK-Plan-LocalDB\VTK-PlanningLocalDB\VTK-PlanningLocalDB\bin\Release\VTK-PlanningLocalDB.exe
+C:\VTK-Plan-LocalDB\VTK-PlanningLocalDB\VTK-PlanningLocalDB\bin\Release\VTK-PlanningLocalDB.pdb
+C:\VTK-Plan-LocalDB\VTK-PlanningLocalDB\VTK-PlanningLocalDB\bin\Release\VTK-PlanningLocalDB.xml
+C:\VTK-Plan-LocalDB\VTK-PlanningLocalDB\VTK-PlanningLocalDB\obj\Release\VTK_PlanningLocalDB.Form1.resources
+C:\VTK-Plan-LocalDB\VTK-PlanningLocalDB\VTK-PlanningLocalDB\obj\Release\VTK_PlanningLocalDB.Resources.resources
+C:\VTK-Plan-LocalDB\VTK-PlanningLocalDB\VTK-PlanningLocalDB\obj\Release\VTK-PlanningLocalDB.vbproj.GenerateResource.Cache
+C:\VTK-Plan-LocalDB\VTK-PlanningLocalDB\VTK-PlanningLocalDB\obj\Release\VTK-PlanningLocalDB.exe.manifest
+C:\VTK-Plan-LocalDB\VTK-PlanningLocalDB\VTK-PlanningLocalDB\obj\Release\VTK-PlanningLocalDB.application
+C:\VTK-Plan-LocalDB\VTK-PlanningLocalDB\VTK-PlanningLocalDB\obj\Release\VTK-PlanningLocalDB.exe
+C:\VTK-Plan-LocalDB\VTK-PlanningLocalDB\VTK-PlanningLocalDB\obj\Release\VTK-PlanningLocalDB.xml
+C:\VTK-Plan-LocalDB\VTK-PlanningLocalDB\VTK-PlanningLocalDB\obj\Release\VTK-PlanningLocalDB.pdb
+C:\VTK-Plan-LocalDB\VTK-PlanningLocalDB\VTK-PlanningLocalDB\obj\Release\Interop.Office.dll
+C:\VTK-Plan-LocalDB\VTK-PlanningLocalDB\VTK-PlanningLocalDB\obj\Release\VTK-PlanningLocalDB.vbproj.ResolveComReference.cache
+C:\VTK-Plan-LocalDB\VTK-PlanningLocalDB\VTK-PlanningLocalDB\obj\Release\VTK-PlanningLocalDB.vbprojResolveAssemblyReference.cache

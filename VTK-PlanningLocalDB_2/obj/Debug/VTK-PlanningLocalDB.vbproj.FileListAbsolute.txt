@@ -1,0 +1,16 @@
+C:\VTK-Plan-LocalDB\VTK-PlanningLocalDB\VTK-PlanningLocalDB\bin\Debug\VTK-PlanningLocalDB.exe.config
+C:\VTK-Plan-LocalDB\VTK-PlanningLocalDB\VTK-PlanningLocalDB\obj\Debug\VTK_PlanningLocalDB.Form1.resources
+C:\VTK-Plan-LocalDB\VTK-PlanningLocalDB\VTK-PlanningLocalDB\obj\Debug\VTK_PlanningLocalDB.Resources.resources
+C:\VTK-Plan-LocalDB\VTK-PlanningLocalDB\VTK-PlanningLocalDB\obj\Debug\VTK-PlanningLocalDB.vbproj.GenerateResource.Cache
+C:\VTK-Plan-LocalDB\VTK-PlanningLocalDB\VTK-PlanningLocalDB\bin\Debug\VTK-PlanningLocalDB.exe
+C:\VTK-Plan-LocalDB\VTK-PlanningLocalDB\VTK-PlanningLocalDB\bin\Debug\VTK-PlanningLocalDB.pdb
+C:\VTK-Plan-LocalDB\VTK-PlanningLocalDB\VTK-PlanningLocalDB\bin\Debug\VTK-PlanningLocalDB.xml
+C:\VTK-Plan-LocalDB\VTK-PlanningLocalDB\VTK-PlanningLocalDB\obj\Debug\VTK-PlanningLocalDB.exe
+C:\VTK-Plan-LocalDB\VTK-PlanningLocalDB\VTK-PlanningLocalDB\obj\Debug\VTK-PlanningLocalDB.xml
+C:\VTK-Plan-LocalDB\VTK-PlanningLocalDB\VTK-PlanningLocalDB\obj\Debug\VTK-PlanningLocalDB.pdb
+C:\VTK-Plan-LocalDB\VTK-PlanningLocalDB\VTK-PlanningLocalDB\bin\Debug\VTK-Planning.mdf
+C:\VTK-Plan-LocalDB\VTK-PlanningLocalDB\VTK-PlanningLocalDB\bin\Debug\VTK-Planning_log.ldf
+C:\VTK-Plan-LocalDB\VTK-PlanningLocalDB\VTK-PlanningLocalDB\bin\Debug\VTK-PlanningLocalDB.exe.manifest
+C:\VTK-Plan-LocalDB\VTK-PlanningLocalDB\VTK-PlanningLocalDB\bin\Debug\VTK-PlanningLocalDB.application
+C:\VTK-Plan-LocalDB\VTK-PlanningLocalDB\VTK-PlanningLocalDB\obj\Debug\VTK-PlanningLocalDB.exe.manifest
+C:\VTK-Plan-LocalDB\VTK-PlanningLocalDB\VTK-PlanningLocalDB\obj\Debug\VTK-PlanningLocalDB.application
