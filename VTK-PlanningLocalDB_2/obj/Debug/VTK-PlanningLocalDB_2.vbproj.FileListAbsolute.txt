@@ -23,3 +23,10 @@ C:\Repositories\Planning.git\VTK-PlanningLocalDB_2\obj\Debug\VTK-PlanningLocalDB
 C:\Repositories\Planning.git\VTK-PlanningLocalDB_2\obj\Debug\VTK_PlanningLocalDB.Form1.resources
 C:\Repositories\Planning.git\VTK-PlanningLocalDB_2\obj\Debug\VTK_PlanningLocalDB.Resources.resources
 C:\Repositories\Planning.git\VTK-PlanningLocalDB_2\obj\Debug\VTK-PlanningLocalDB_2.vbproj.GenerateResource.Cache
+C:\Repositories\Planning.git\VTK-PlanningLocalDB_2\bin\Debug\VTK-PlanningLocalDB_2.exe.manifest
+C:\Repositories\Planning.git\VTK-PlanningLocalDB_2\bin\Debug\VTK-PlanningLocalDB_2.application
+C:\Repositories\Planning.git\VTK-PlanningLocalDB_2\bin\Debug\VTK-PlanningLocalDB_2.exe
+C:\Repositories\Planning.git\VTK-PlanningLocalDB_2\bin\Debug\VTK-PlanningLocalDB_2.pdb
+C:\Repositories\Planning.git\VTK-PlanningLocalDB_2\bin\Debug\VTK-PlanningLocalDB_2.xml
+C:\Repositories\Planning.git\VTK-PlanningLocalDB_2\obj\Debug\VTK-PlanningLocalDB_2.exe.manifest
+C:\Repositories\Planning.git\VTK-PlanningLocalDB_2\obj\Debug\VTK-PlanningLocalDB_2.application
