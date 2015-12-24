@@ -12,7 +12,9 @@ Imports System.Drawing.Drawing2D
 
 Public Class Form1
     Dim connectionString As String
-    'Change connection string in App.config to connect new database
+    'Change connection string in App.config to connect new database.................
+    'Opgelet is SQL server "SQLlocalDB.msi" al geinstalleerd ??
+
     Dim connectionString1 As String = "Data Source=(LocalDB)\v11.0;AttachDbFilename=N:\Engineering\DB_vtk_planning\VTK-Planning.mdf;Integrated Security=True;Connect Timeout=60"
     Dim connectionString2 As String = "Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\KenPlan_database_directory\E-Planning.mdf;Integrated Security=True;Connect Timeout=60"
 

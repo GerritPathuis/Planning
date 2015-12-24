@@ -30,3 +30,4 @@ C:\Repositories\Planning.git\VTK-PlanningLocalDB_2\bin\Debug\VTK-PlanningLocalDB
 C:\Repositories\Planning.git\VTK-PlanningLocalDB_2\bin\Debug\VTK-PlanningLocalDB_2.xml
 C:\Repositories\Planning.git\VTK-PlanningLocalDB_2\obj\Debug\VTK-PlanningLocalDB_2.exe.manifest
 C:\Repositories\Planning.git\VTK-PlanningLocalDB_2\obj\Debug\VTK-PlanningLocalDB_2.application
+C:\Repositories\Planning.git\VTK-PlanningLocalDB_2\obj\Debug\Interop.Office.dll
