@@ -9,13 +9,16 @@ Imports System.Drawing.Printing
 Imports System.Security.Permissions
 Imports System.Security
 Imports System.Drawing.Drawing2D
+Imports System.Globalization
+Imports System.Threading
 
 Public Class Form1
     Dim connectionString As String
     'Change connection string in App.config to connect new database.................
     'Opgelet is SQL server "SQLlocalDB.msi" al geinstalleerd ??
 
-    Dim connectionString1 As String = "Data Source=(LocalDB)\v11.0;AttachDbFilename=N:\Engineering\DB_vtk_planning\VTK-Planning.mdf;Integrated Security=True;Connect Timeout=60"
+
+    ' Dim connectionString1 As String = "Data Source=(LocalDB)\v11.0;AttachDbFilename=N:\Engineering\DB_vtk_planning\VTK-Planning.mdf;Integrated Security=True;Connect Timeout=60"
     Dim connectionString2 As String = "Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\KenPlan_database_directory\E-Planning.mdf;Integrated Security=True;Connect Timeout=60"
 
     Private streamToPrint As StreamReader
@@ -26,12 +29,18 @@ Public Class Form1
     Dim DATABASE_LOG_NAME As String = "E-Planning_log.ldf"
 
     Dim PATH As String
-    Dim PATH1 As String = "N:\Engineering\DB_vtk_planning\"
+    'Dim PATH1 As String = "N:\Engineering\DB_vtk_planning\"
     Dim PATH2 As String = "c:\KenPlan_database_directory\"
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        '----------------------Set the default date format-------------------- 
+        Dim newCulture As CultureInfo = DirectCast(System.Threading.Thread.CurrentThread.CurrentCulture.Clone(), CultureInfo)
+        newCulture.DateTimeFormat.ShortDatePattern = "dd-MM-yyyy"
+        newCulture.DateTimeFormat.DateSeparator = "-"
+        Thread.CurrentThread.CurrentCulture = newCulture
+
         find_database() 'Make a Database file copy 
-        Copy_database() 'Make a Database file copy 
+        copy_database() 'Make a Database file copy 
 
         Try
             Me.StaffTableAdapter.Fill(Me._VTK_PlanningDataSet1.Staff)
@@ -55,11 +64,15 @@ Public Class Form1
         Label1.Text = Now
         Label2.Text = "Weeknummer " + WeekNummer(Now).ToString
 
-        Update_0()  'Check database
+        Try
+            Update_0()  'Check database
 
-        Fill_ComboBox1()
-        Fill_ComboBox2()
-        Fill_ComboBox3()
+            Fill_ComboBox1()
+            Fill_ComboBox2()
+            Fill_ComboBox3()
+        Catch ex As Exception
+            MessageBox.Show("First update failled " & ex.Message)
+        End Try
     End Sub
 
     Public Function WeekNummer(ByVal datum As Date) As Double
@@ -657,113 +670,118 @@ Public Class Form1
         Dim format As String = "{0,-5} {1,-8} {2,-60} {3,4} {4,3} {5,3} {6,3} {7,-6} {8,-6} {9,-6} {10,-6} {11,4} {12,-10}"
         Dim now_min_2wks As DateTime
 
-        If System.IO.File.Exists(PATH + FILE_NAME) = False Then
-            Using sw As StreamWriter = File.CreateText(PATH + FILE_NAME) ' Create a file to write to. 
-                sw.WriteLine("File for Eplanning")
-            End Using
-            MsgBox("File Created for Eplanning")
-        End If
-        Dim objWriter As New System.IO.StreamWriter(PATH + FILE_NAME)
+        Try
+            If System.IO.File.Exists(PATH + FILE_NAME) = False Then
+                Using sw As StreamWriter = File.CreateText(PATH + FILE_NAME) ' Create a file to write to. 
+                    sw.WriteLine("File for Eplanning")
+                End Using
+                MsgBox("File Created for Eplanning")
+            End If
+            Dim objWriter As New System.IO.StreamWriter(PATH + FILE_NAME)
 
-        '---------------Get All unfinished jobs and finished jobs less 2 weeks----------------
-        now_min_2wks = New DateTime(Now.Year, Now.Month, Now.Day, 8, 0, 0, 0)  'start time 
-        now_min_2wks = DateAdd("d", (NumericUpDown1.Value * -7 + 1), now_min_2wks)                          'Subtract 2 weeks
-
-
-        '---------------What to print---------------------------------------------------------
-        Dim table As DataTable = _VTK_PlanningDataSet1.Jobs
-        Dim result() As DataRow
-
-        Dim message, title, defaultValue As String
-        Dim myValue As Object
-
-        '---------------------What to print-----------------------
-        ' Set prompt.
-        message = "1) Op TC gesorteerd, Jobs finished + last 2 wks" & Chr(13) & Chr(10) & "2) Op TC gesorteed, Jobs finished" &
-            Chr(13) & Chr(10) & "3) Op Jobs gesorteed"
-        ' Set title.
-        title = "Print Selection"
-        defaultValue = "3"   ' Set default value.
-        myValue = InputBox(message, title, defaultValue)
-        ' If user has clicked Cancel, set myValue to defaultValue 
-        If myValue Is "" Then myValue = defaultValue
+            '---------------Get All unfinished jobs and finished jobs less 2 weeks----------------
+            now_min_2wks = New DateTime(Now.Year, Now.Month, Now.Day, 8, 0, 0, 0)  'start time 
+            now_min_2wks = DateAdd("d", (NumericUpDown1.Value * -7 + 1), now_min_2wks)                          'Subtract 2 weeks
 
 
-        '-----------------Select the proper dataset and sort------------------------
-        str = "[Finished] < 100"
-        result = table.Select(str, "[Job_nr] ASC, [Start_date] ASC, [Finish_date] ASC")
+            '---------------What to print---------------------------------------------------------
+            Dim table As DataTable = _VTK_PlanningDataSet1.Jobs
+            Dim result() As DataRow
 
-        If myValue = 1 Then
-            str = String.Format("[Finished] < 100 OR [Finished_date] > #{0:MM/dd/yyyy hh:mm:ss}#", now_min_2wks) & " OR [Finished] < 100"
-            result = table.Select(str, "[TC] ASC, [Start_date] ASC, [Finish_date] ASC")
-        ElseIf myValue = 2 Then
+            Dim message, title, defaultValue As String
+            Dim myValue As Object
+
+            '---------------------What to print-----------------------
+            ' Set prompt.
+            message = "1) Op TC gesorteerd, Jobs finished + last 2 wks" & Chr(13) & Chr(10) & "2) Op TC gesorteed, Jobs finished" &
+                Chr(13) & Chr(10) & "3) Op Jobs gesorteed"
+            ' Set title.
+            title = "Print Selection"
+            defaultValue = "1"   ' Set default value.
+            myValue = InputBox(message, title, defaultValue)
+            ' If user has clicked Cancel, set myValue to defaultValue 
+            If myValue Is "" Then myValue = defaultValue
+
+
+            '-----------------Select the proper dataset and sort------------------------
             str = "[Finished] < 100"
-            result = table.Select(str, "[TC] ASC, [Start_date] ASC, [Finish_date] ASC")
-        End If
+            result = table.Select(str, "[Job_nr] ASC, [Start_date] ASC, [Finish_date] ASC")
 
-        '---------------Print Header to file-----------
-        str = String.Format("Engineering planning wk " + WeekNummer(Now).ToString + "; " + Now.ToShortTimeString.ToString) + "; " + Label3.Text
-        objWriter.Write(str + Environment.NewLine + Environment.NewLine)
-
-        str = String.Format(format, "Book", "Job_nr", "Description", "Hrs", "Hrs", "TC", "Pri", "Start", "BBuro", "PPlan", "Ship", "Prod", "Remarks")
-        objWriter.Write(str + Environment.NewLine)
-
-        str = String.Format(format, "date", "      ", "          ", "tot", "act", "   ", "   ", "ywkd ", "ywkd ", "ywkd ", "ywkd", "days", " ")
-        objWriter.Write(str + Environment.NewLine + Environment.NewLine)
-
-        TC_name = result(0).Item("TC")                                      'For adding separation line betwee different TC
-
-        '---------------Print to file-----------
-        For i = 0 To result.GetUpperBound(0)
-            '--- limit length of job_nr
-            job_nr_short = result(i).Item("job_nr") & "      "   'Append blanks 
-            job_nr_short = job_nr_short.Substring(0, 8)          'Now reduce the length 
-
-            '--- limit length of the description
-            desc_short = result(i).Item("Descrip_job").trim() & "-----------------------------------------------------------"   'Append blanks 
-            desc_short = desc_short.Substring(0, 60)             'Now reduce the length 
-
-            TC_short = result(i).Item("TC")
-            TC_short = TC_short.Substring(0, 3)
-
-            prio_short = result(i).Item("Priority").ToString
-            prio_short = prio_short.Trim
-
-            '--- limit length of the Product time
-            pt_short = result(i).Item("Prod_time") & "        "   'Append blanks 
-            pt_short = pt_short.Substring(0, 3)                   'Now reduce the length 
-
-            BB_wk = WeekNummer(result(i).Item("BB_date"))
-
-            If Not IsDBNull(result(i).Item("Production_Planning")) Then
-                PP_wk = WeekNummer(result(i).Item("Production_Planning"))
-            Else
-                PP_wk = "-----"
+            If myValue = 1 Then
+                str = String.Format("[Finished] < 100 OR [Finished_date] > #{0:MM/dd/yyyy hh:mm:ss}#", now_min_2wks) & " OR [Finished] < 100"
+                result = table.Select(str, "[TC] ASC, [Start_date] ASC, [Finish_date] ASC")
+                MessageBox.Show(str)
+            ElseIf myValue = 2 Then
+                str = "[Finished] < 100"
+                result = table.Select(str, "[TC] ASC, [Start_date] ASC, [Finish_date] ASC")
             End If
 
-            ship_wk = WeekNummer(result(i).Item("Ship_Date"))
+            '---------------Print Header to file-----------
+            str = String.Format("Engineering planning wk " + WeekNummer(Now).ToString + "; " + Now.ToShortTimeString.ToString) + "; " + Label3.Text
+            objWriter.Write(str + Environment.NewLine + Environment.NewLine)
 
-            '--- limit length of the Remarks
-            rem_short = result(i).Item("Remarks").trim() & "-----------------"   'Append blanks 
-            rem_short = rem_short.Substring(0, 17)                'Now reduce the length 
-
-            '---------------------- Make the string ---------------------------------------
-            str = String.Format(format, WeekNummer(result(i).Item("Booking")), job_nr_short,
-           desc_short, result(i).Item("Length"), result(i).Item("Spent_hrs"),
-           TC_short, prio_short, WeekNummer(result(i).Item("Start_Date")),
-            BB_wk, PP_wk, ship_wk, pt_short, rem_short)
-
-            '---------------For adding separation line betwee different TC----------------
-            If String.Compare(TC_name, result(i).Item("TC")) And myValue <> 3 Then
-                objWriter.Write(Environment.NewLine)
-                TC_name = result(i).Item("TC")
-            End If
-
+            str = String.Format(format, "Book", "Job_nr", "Description", "Hrs", "Hrs", "TC", "Pri", "Start", "BBuro", "PPlan", "Ship", "Prod", "Remarks")
             objWriter.Write(str + Environment.NewLine)
-        Next i
-        objWriter.Close()
-        Label5.Text = "Txt to " + PATH + FILE_NAME
-        MyBase.Update()
+
+            str = String.Format(format, "date", "      ", "          ", "tot", "act", "   ", "   ", "ywkd ", "ywkd ", "ywkd ", "ywkd", "days", " ")
+            objWriter.Write(str + Environment.NewLine + Environment.NewLine)
+
+            TC_name = result(0).Item("TC")                                      'For adding separation line betwee different TC
+
+            '---------------Print to file-----------
+            For i = 0 To result.GetUpperBound(0)
+                '--- limit length of job_nr
+                job_nr_short = result(i).Item("job_nr") & "      "   'Append blanks 
+                job_nr_short = job_nr_short.Substring(0, 8)          'Now reduce the length 
+
+                '--- limit length of the description
+                desc_short = result(i).Item("Descrip_job").trim() & "-----------------------------------------------------------"   'Append blanks 
+                desc_short = desc_short.Substring(0, 60)             'Now reduce the length 
+
+                TC_short = result(i).Item("TC")
+                TC_short = TC_short.Substring(0, 3)
+
+                prio_short = result(i).Item("Priority").ToString
+                prio_short = prio_short.Trim
+
+                '--- limit length of the Product time
+                pt_short = result(i).Item("Prod_time") & "        "   'Append blanks 
+                pt_short = pt_short.Substring(0, 3)                   'Now reduce the length 
+
+                BB_wk = WeekNummer(result(i).Item("BB_date"))
+
+                If Not IsDBNull(result(i).Item("Production_Planning")) Then
+                    PP_wk = WeekNummer(result(i).Item("Production_Planning"))
+                Else
+                    PP_wk = "-----"
+                End If
+
+                ship_wk = WeekNummer(result(i).Item("Ship_Date"))
+
+                '--- limit length of the Remarks
+                rem_short = result(i).Item("Remarks").trim() & "-----------------"   'Append blanks 
+                rem_short = rem_short.Substring(0, 17)                'Now reduce the length 
+
+                '---------------------- Make the string ---------------------------------------
+                str = String.Format(format, WeekNummer(result(i).Item("Booking")), job_nr_short,
+               desc_short, result(i).Item("Length"), result(i).Item("Spent_hrs"),
+               TC_short, prio_short, WeekNummer(result(i).Item("Start_Date")),
+                BB_wk, PP_wk, ship_wk, pt_short, rem_short)
+
+                '---------------For adding separation line betwee different TC----------------
+                If String.Compare(TC_name, result(i).Item("TC")) And myValue <> 3 Then
+                    objWriter.Write(Environment.NewLine)
+                    TC_name = result(i).Item("TC")
+                End If
+
+                objWriter.Write(str + Environment.NewLine)
+            Next i
+            objWriter.Close()
+            Label5.Text = "Txt to " + PATH + FILE_NAME
+            MyBase.Update()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message & "Create file containing the jobs info ")
+        End Try
     End Sub
 
     'Make a copy of the database file
@@ -777,16 +795,16 @@ Public Class Form1
             Label5.Text = DATABASE_NAME + " copied"
             MyBase.Update()
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            MessageBox.Show(ex.Message & "Problem making copy of the Database files ")
         End Try
     End Sub
     'Find the database file (different for home and VTK)
     Private Sub find_database()
         Try
-            If System.IO.File.Exists(PATH1 + DATABASE_NAME) Then
-                connectionString = connectionString1
-                PATH = PATH1
-            End If
+            'If System.IO.File.Exists(PATH1 + DATABASE_NAME) Then
+            '    connectionString = connectionString1
+            '    PATH = PATH1
+            'End If
 
             If System.IO.File.Exists(PATH2 + DATABASE_NAME) Then
                 connectionString = connectionString2
@@ -813,56 +831,63 @@ Public Class Form1
         now_min_2wks = DateAdd("d", (NumericUpDown1.Value * -7 + 1), now_min_2wks)                          'Subtract x weeks
         sql_str = String.Format("[Finished_date] > #{0:MM/dd/yyyy hh:mm:ss}# ", now_min_2wks)
 
-        '---------------Making sure that comboboxes are not empty-----------------
-        If ComboBox1.Items.Count > 0 And ComboBox2.Items.Count > 0 And ComboBox3.Items.Count > 0 Then
+        Try
+            '---------------Making sure that comboboxes are not empty-----------------
+            If ComboBox1.Items.Count > 0 And ComboBox2.Items.Count > 0 And ComboBox3.Items.Count > 0 Then
 
-            If ComboBox1.Text = "ALL" Then
-                filter_str = " "
-                sort_str = "Job_nr, Start_date, Finish_date ASC"
-            ElseIf ComboBox1.Text = "ALL FINISHED" Then
-                filter_str = "[Finished] = 100"
-                sort_str = "Job_nr, Start_date, Finish_date ASC"
-            ElseIf ComboBox1.Text = "ALL PENDING -x wks" Then
-                filter_str = sql_str & " OR [Finished] < 100"
-                sort_str = "Job_nr, Start_date, Finish_date ASC"
-            ElseIf ComboBox1.Text = "BOOK DATE" Then
-                filter_str = "[Booking] > #01/01/2014#"
-                sort_str = "Booking, Job_nr, Start_date, Finish_date ASC"
-            Else
-                filter_str = "[TC]='" & ComboBox1.Text & "' AND ([Finished] < 100 OR " & sql_str & ")"
-                sort_str = "Start_date, Finish_date ASC"
-            End If
+                If ComboBox1.Text = "ALL" Then
+                    filter_str = " "
+                    sort_str = "Job_nr, Start_date, Finish_date ASC"
+                ElseIf ComboBox1.Text = "ALL FINISHED" Then
+                    filter_str = "[Finished] = 100"
+                    sort_str = "Job_nr, Start_date, Finish_date ASC"
+                ElseIf ComboBox1.Text = "ALL PENDING -x wks" Then
+                    filter_str = sql_str & " OR [Finished] < 100"
+                    sort_str = "Job_nr, Start_date, Finish_date ASC"
+                ElseIf ComboBox1.Text = "BOOK DATE" Then
+                    filter_str = "[Booking] > #01/01/2014#"
+                    sort_str = "Booking, Job_nr, Start_date, Finish_date ASC"
+                Else
+                    filter_str = "[TC]='" & ComboBox1.Text & "' AND ([Finished] < 100 OR " & sql_str & ")"
+                    sort_str = "Start_date, Finish_date ASC"
+                End If
 
-            '-------------------- add the department selection --------------------
-            If ComboBox3.Text <> "ALL" Then
-                filter_str = filter_str & " AND [Department]= " & ComboBox3.Text
+                '-------------------- add the department selection --------------------
+                If ComboBox3.Text <> "ALL" Then
+                    filter_str = filter_str & " AND [Department]= " & ComboBox3.Text
+                End If
+                JobsBindingSource.Filter = filter_str
+                JobsBindingSource.Sort = sort_str
             End If
-            JobsBindingSource.Filter = filter_str
-            JobsBindingSource.Sort = sort_str
-        End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
     End Sub
 
     Private Sub ComboBox2_SelectedIndexChanged_1(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged
         Dim filter_str, sort_str As String
+        Try
+            '---------------Making sure that comboboxes are not empty-----------------
+            If ComboBox1.Items.Count > 0 And ComboBox2.Items.Count > 0 And ComboBox3.Items.Count > 0 Then
 
-        '---------------Making sure that comboboxes are not empty-----------------
-        If ComboBox1.Items.Count > 0 And ComboBox2.Items.Count > 0 And ComboBox3.Items.Count > 0 Then
+                If Not ComboBox2.Text = "Job_nr" Then
+                    filter_str = "[Job_nr]= '" & ComboBox2.Text & "'"
+                    sort_str = "Job_nr, Start_date, Finish_date ASC"
+                Else
+                    filter_str = " "
+                    sort_str = "Job_nr, Start_date, Finish_date ASC"
+                End If
 
-            If Not ComboBox2.Text = "Job_nr" Then
-                filter_str = "[Job_nr]= '" & ComboBox2.Text & "'"
-                sort_str = "Job_nr, Start_date, Finish_date ASC"
-            Else
-                filter_str = " "
-                sort_str = "Job_nr, Start_date, Finish_date ASC"
+                '-------------------- add the department selection --------------------
+                If ComboBox3.Text <> "ALL" And Not ComboBox2.Text = "Job_nr" Then
+                    filter_str = filter_str & " AND [Department]= " & ComboBox3.Text
+                End If
+                JobsBindingSource.Filter = filter_str
+                JobsBindingSource.Sort = sort_str
             End If
-
-            '-------------------- add the department selection --------------------
-            If ComboBox3.Text <> "ALL" And Not ComboBox2.Text = "Job_nr" Then
-                filter_str = filter_str & " AND [Department]= " & ComboBox3.Text
-            End If
-            JobsBindingSource.Filter = filter_str
-            JobsBindingSource.Sort = sort_str
-        End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
     End Sub
     'Job done ?
     Private Sub ToolStripButton4_Click(sender As Object, e As EventArgs) Handles ToolStripButton4.Click
