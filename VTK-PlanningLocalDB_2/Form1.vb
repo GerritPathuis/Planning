@@ -693,8 +693,9 @@ Public Class Form1
 
             '---------------------What to print-----------------------
             ' Set prompt.
-            message = "1) Op TC gesorteerd, Jobs finished + last 2 wks" & Chr(13) & Chr(10) & "2) Op TC gesorteed, Jobs finished" &
-                Chr(13) & Chr(10) & "3) Op Jobs gesorteed"
+            message = "1) Op TC gesorteerd, Pending Jobs + finished in last 2 wks" & Chr(13) & Chr(10) & "2) Op TC gesorteed, Jobs Pending only" &
+                Chr(13) & Chr(10) & "3) Op Jobs gesorteed for production meeting"
+
             ' Set title.
             title = "Print Selection"
             defaultValue = "1"   ' Set default value.
@@ -703,14 +704,19 @@ Public Class Form1
             If myValue Is "" Then myValue = defaultValue
 
 
+            Dim sql_str As String
+            now_min_2wks = New DateTime(Now.Year, Now.Month, Now.Day, 8, 0, 0, 0)  'start time 
+            now_min_2wks = DateAdd("d", (NumericUpDown1.Value * -7 + 1), now_min_2wks)                          'Subtract x weeks
+            sql_str = String.Format("[Finished_date] > #{0:MM/dd/yyyy hh:mm:ss}# ", now_min_2wks)
+
+
             '-----------------Select the proper dataset and sort------------------------
             str = "[Finished] < 100"
             result = table.Select(str, "[Job_nr] ASC, [Start_date] ASC, [Finish_date] ASC")
 
             If myValue = 1 Then
-                str = String.Format("[Finished] < 100 OR [Finished_date] > #{0:MM/dd/yyyy hh:mm:ss}#", now_min_2wks) & " OR [Finished] < 100"
+                str = "([Finished] < 100 OR " & sql_str & ")"
                 result = table.Select(str, "[TC] ASC, [Start_date] ASC, [Finish_date] ASC")
-                MessageBox.Show(str)
             ElseIf myValue = 2 Then
                 str = "[Finished] < 100"
                 result = table.Select(str, "[TC] ASC, [Start_date] ASC, [Finish_date] ASC")

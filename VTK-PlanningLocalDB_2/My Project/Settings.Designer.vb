@@ -57,8 +57,8 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\KenPlan_database_directory\VTK-Pl"& _ 
-            "anning.mdf;Integrated Security=True;Connect Timeout=30")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\KenPlan_database_directory\E-Plan"& _ 
+            "ning.mdf;Integrated Security=True;Connect Timeout=30")>  _
         Public ReadOnly Property VTK_PlanningConnectionString() As String
             Get
                 Return CType(Me("VTK_PlanningConnectionString"),String)
