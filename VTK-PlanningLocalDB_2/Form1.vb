@@ -1,14 +1,7 @@
 ﻿Imports System.Data.SqlClient
-Imports System.Data
 Imports System.Text
-Imports System
 Imports System.IO
-Imports System.Configuration
-Imports System.Drawing
 Imports System.Drawing.Printing
-Imports System.Security.Permissions
-Imports System.Security
-Imports System.Drawing.Drawing2D
 Imports System.Globalization
 Imports System.Threading
 
@@ -16,7 +9,6 @@ Public Class Form1
     Dim connectionString As String
     'Change connection string in App.config to connect new database.................
     'Opgelet is SQL server "SQLlocalDB.msi" al geinstalleerd ??
-
 
     ' Dim connectionString1 As String = "Data Source=(LocalDB)\v11.0;AttachDbFilename=N:\Engineering\DB_vtk_planning\VTK-Planning.mdf;Integrated Security=True;Connect Timeout=60"
     Dim connectionString2 As String = "Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\KenPlan_database_directory\E-Planning.mdf;Integrated Security=True;Connect Timeout=60"
@@ -61,7 +53,7 @@ Public Class Form1
         Dim column4 As DataGridViewColumn = JobsDataGridView.Columns(4)
         column4.Width = 200
 
-        Label1.Text = Now
+        Label1.Text = CType(Now, String)
         Label2.Text = "Weeknummer " + WeekNummer(Now).ToString
 
         Try
@@ -119,7 +111,7 @@ Public Class Form1
         For hj = 0 To jobs_table.Rows.Count - 1
             str = jobs_table.Rows(hj).Item("Job_nr").ToString
             If (Not lstOfStrings.Contains(str)) Then
-                lstOfStrings.Add(jobs_table.Rows(hj).Item("Job_nr"))
+                lstOfStrings.Add(CType(jobs_table.Rows(hj).Item("Job_nr"), String))
             End If
         Next hj
         lstOfStrings.Sort()  'Now sort the list
@@ -142,7 +134,7 @@ Public Class Form1
         For hj = 0 To jobs_table.Rows.Count - 1
             str = jobs_table.Rows(hj).Item("Department").ToString
             If (Not lstOfStrings.Contains(str)) Then
-                lstOfStrings.Add(jobs_table.Rows(hj).Item("Department"))
+                lstOfStrings.Add(CType(jobs_table.Rows(hj).Item("Department"), String))
             End If
         Next hj
         lstOfStrings.Sort()  'Now sort the list
@@ -293,7 +285,7 @@ Public Class Form1
 
     End Sub
 
-    Function RandomString(r As Random)
+    Function RandomString(r As Random) As String
         Dim s As String = "ABCDEFGH"
         Dim sb As New StringBuilder
         Dim cnt As Integer = r.Next(8, 10)
@@ -384,7 +376,7 @@ Public Class Form1
         'Do for every TC of the staff table
         For hh = 0 To staff_table.Rows.Count - 1
             ' Get the first TC name
-            tc_name = staff_table.Rows(hh).Item(0)
+            tc_name = CType(staff_table.Rows(hh).Item(0), String)
 
             '-------------------- Get All unfinished jobs from first TC -------------
             filter = "TC = '" + tc_name.ToString + "'" + " and Finished < 100 "
@@ -403,29 +395,29 @@ Public Class Form1
                     ' MessageBox.Show(temp.ToLongDateString)
                 End If
                 '--------------- Just making sure----------------
-                If found_rows_job(ii).Item("Finished") < 0 Then found_rows_job(ii).Item("Finished") = 0
-                If found_rows_job(ii).Item("Finished") > 100 Then found_rows_job(ii).Item("Finished") = 100
-                If found_rows_job(ii).Item("Length") > 2000 Then found_rows_job(ii).Item("Length") = 2000
-                If found_rows_job(ii).Item("Length") < 0 Then found_rows_job(ii).Item("Length") = -1
+                If CInt(found_rows_job(ii).Item("Finished")) < 0 Then found_rows_job(ii).Item("Finished") = 0
+                If CInt(found_rows_job(ii).Item("Finished")) > 100 Then found_rows_job(ii).Item("Finished") = 100
+                If CInt(found_rows_job(ii).Item("Length")) > 2000 Then found_rows_job(ii).Item("Length") = 2000
+                If CInt(found_rows_job(ii).Item("Length")) < 0 Then found_rows_job(ii).Item("Length") = -1
 
                 '--------------- Done making sure----------------
-                job_length = found_rows_job(ii).Item("Length") * (100 - found_rows_job(ii).Item("Finished")) / 100
+                job_length = CInt(CInt(found_rows_job(ii).Item("Length")) * (100 - CInt(found_rows_job(ii).Item("Finished"))) / 100)
 
                 '--------------- add the load factor----------------
                 If CheckBox1.Checked = True Then
-                    job_length = job_length / 0.8
+                    job_length = CInt(job_length / 0.8)
                 End If
 
                 found_rows_job(ii).Item("Start_date") = temp
-                vak1 = staff_table.Rows(hh).Item("vak_wk1")
-                vak2 = staff_table.Rows(hh).Item("vak_wk2")
-                vak3 = staff_table.Rows(hh).Item("vak_wk3")
-                vak4 = staff_table.Rows(hh).Item("vak_wk4")
+                vak1 = CInt(staff_table.Rows(hh).Item("vak_wk1"))
+                vak2 = CInt(staff_table.Rows(hh).Item("vak_wk2"))
+                vak3 = CInt(staff_table.Rows(hh).Item("vak_wk3"))
+                vak4 = CInt(staff_table.Rows(hh).Item("vak_wk4"))
 
-                vak1 = Int(vak1 / 10) * 10 + 1      'Set to the first day of the week eg 5333 becomes 5331
-                vak2 = Int(vak2 / 10) * 10 + 1      'Set to the first day of the week eg 5333 becomes 5331
-                vak3 = Int(vak3 / 10) * 10 + 1      'Set to the first day of the week eg 5333 becomes 5331
-                vak4 = Int(vak4 / 10) * 10 + 1      'Set to the first day of the week eg 5333 becomes 5331
+                vak1 = CInt(Int(vak1 / 10) * 10 + 1)      'Set to the first day of the week eg 5333 becomes 5331
+                vak2 = CInt(Int(vak2 / 10) * 10 + 1)      'Set to the first day of the week eg 5333 becomes 5331
+                vak3 = CInt(Int(vak3 / 10) * 10 + 1)      'Set to the first day of the week eg 5333 becomes 5331
+                vak4 = CInt(Int(vak4 / 10) * 10 + 1)      'Set to the first day of the week eg 5333 becomes 5331
 
                 While (job_length > 0)
 
@@ -498,17 +490,17 @@ Public Class Form1
 
         For i = 0 To result.GetUpperBound(0)
             'Calculate the department load in hours
-            total += result(i).Item("Length") * (100 - result(i).Item("Finished")) / 100
+            total += CInt(result(i).Item("Length")) * (100 - CInt(result(i).Item("Finished"))) / 100
 
             'Calculate the finished percentage
-            If (result(i).Item("Finished") <> 100 And Not IsDBNull(result(i).Item("Finished")) And Not IsDBNull(result(i).Item("Spent_hrs")) And result(i).Item("Length") > 0) Then
+            If (CInt(result(i).Item("Finished")) <> 100 And Not IsDBNull(result(i).Item("Finished")) And Not IsDBNull(result(i).Item("Spent_hrs")) And CInt(result(i).Item("Length")) > 0) Then
 
                 'Make sure finished >= spent
-                If result(i).Item("Spent_hrs") > result(i).Item("Finished") Then
+                If CInt(result(i).Item("Spent_hrs")) > CInt(result(i).Item("Finished")) Then
                     result(i).Item("Finished") = result(i).Item("Spent_hrs")
                 End If
 
-                done = Int(100 * result(i).Item("Spent_hrs") / result(i).Item("Length"))
+                done = CInt(100 * CInt(result(i).Item("Spent_hrs")) / CInt(result(i).Item("Length")))
 
                 'This calculation is not allowed to closed the job at 100%
                 If done < 100 Then
@@ -519,7 +511,7 @@ Public Class Form1
             End If
 
             'Calculate workingdays available for the production
-            result(i).Item("Prod_time") = SubttractWorkingDays(result(i).Item("BB_date"), result(i).Item("Ship_date"))
+            result(i).Item("Prod_time") = SubttractWorkingDays(CDate(result(i).Item("BB_date")), CDate(result(i).Item("Ship_date")))
         Next i
     End Sub
     ' Calc total load of individual TC's
@@ -536,7 +528,7 @@ Public Class Form1
         '--------------- Do for every TC of the staff table -------------------------
         For j = 0 To staff_table.Rows.Count - 1
             ' Get the first TC name
-            tc_name = staff_table.Rows(j).Item(0)
+            tc_name = CType(staff_table.Rows(j).Item(0), String)
 
             '-------------------- Get All unfinished jobs from first TC -------------
             TC_total = 0
@@ -544,7 +536,7 @@ Public Class Form1
             found_rows_job = jobs_table.Select(filter)
             'MessageBox.Show(filter)
             For i = 0 To found_rows_job.GetUpperBound(0)
-                TC_total += found_rows_job(i).Item("Length") * (100 - found_rows_job(i).Item("Finished")) / 100
+                TC_total += CInt(found_rows_job(i).Item("Length")) * (100 - CInt(found_rows_job(i).Item("Finished"))) / 100
             Next i
             'Store the result
             staff_table.Rows(j).Item("TC_Load") = TC_total
@@ -558,11 +550,11 @@ Public Class Form1
     Public Function C_DayOfYear(ByVal dwkd As Integer) As Date
         Dim c_year, c_week, c_day As Integer
         Dim dayofyear As Integer
-        Dim StartOfYear As Date = "#1/1/2015#"
+        Dim StartOfYear As Date = CDate("#1/1/2015#")
         Dim ReturnDate As Date
 
-        c_year = Int(dwkd / 1000)
-        c_week = Int((dwkd - (c_year * 1000)) / 10)
+        c_year = CInt(Int(dwkd / 1000))
+        c_week = CInt(Int((dwkd - (c_year * 1000)) / 10))
         c_day = dwkd - (c_year * 1000) - (c_week * 10)
         c_year += 2010
 
@@ -632,12 +624,12 @@ Public Class Form1
                 reader.Dispose()
             End Try
         Finally
-            stream.Dispose()
+            'stream.Dispose()
         End Try
         stringToPrint = documentContents
     End Sub
 
-    Sub printDocument1_PrintPage(ByVal sender As Object,
+    Sub PrintDocument1_PrintPage(ByVal sender As Object,
     ByVal e As PrintPageEventArgs) Handles PrintDocument1.PrintPage
 
         Dim charactersOnPage As Integer = 0
@@ -686,7 +678,7 @@ Public Class Form1
 
             '---------------What to print---------------------------------------------------------
             Dim table As DataTable = _VTK_PlanningDataSet1.Jobs
-            Dim result() As DataRow
+            Dim result() As DataRow = Nothing
 
             Dim message, title, defaultValue As String
             Dim myValue As Object
@@ -714,10 +706,10 @@ Public Class Form1
             str = "[Finished] < 100"
             result = table.Select(str, "[Job_nr] ASC, [Start_date] ASC, [Finish_date] ASC")
 
-            If myValue = 1 Then
+            If CInt(myValue) = 1 Then
                 str = "([Finished] < 100 OR " & sql_str & ")"
                 result = table.Select(str, "[TC] ASC, [Start_date] ASC, [Finish_date] ASC")
-            ElseIf myValue = 2 Then
+            ElseIf CInt(myValue) = 2 Then
                 str = "[Finished] < 100"
                 result = table.Select(str, "[TC] ASC, [Start_date] ASC, [Finish_date] ASC")
             End If
@@ -732,52 +724,56 @@ Public Class Form1
             str = String.Format(format, "date", "      ", "          ", "tot", "act", "   ", "   ", "ywkd ", "ywkd ", "ywkd ", "ywkd", "days", " ")
             objWriter.Write(str + Environment.NewLine + Environment.NewLine)
 
-            TC_name = result(0).Item("TC")                                      'For adding separation line betwee different TC
+            TC_name = CType(result(0).Item("TC"), String)                                      'For adding separation line betwee different TC
 
             '---------------Print to file-----------
             For i = 0 To result.GetUpperBound(0)
                 '--- limit length of job_nr
-                job_nr_short = result(i).Item("job_nr") & "      "   'Append blanks 
+                job_nr_short = result(i).Item("job_nr").ToString & "      "   'Append blanks 
                 job_nr_short = job_nr_short.Substring(0, 8)          'Now reduce the length 
 
                 '--- limit length of the description
-                desc_short = result(i).Item("Descrip_job").trim() & "-----------------------------------------------------------"   'Append blanks 
+                desc_short = result(i).Item("Descrip_job").ToString
+                desc_short = desc_short.Trim()
+                desc_short &= "-----------------------------------------------------------"   'Append blanks 
                 desc_short = desc_short.Substring(0, 60)             'Now reduce the length 
 
-                TC_short = result(i).Item("TC")
+                TC_short = CType(result(i).Item("TC"), String)
                 TC_short = TC_short.Substring(0, 3)
 
                 prio_short = result(i).Item("Priority").ToString
                 prio_short = prio_short.Trim
 
                 '--- limit length of the Product time
-                pt_short = result(i).Item("Prod_time") & "        "   'Append blanks 
+                pt_short = result(i).Item("Prod_time").ToString & "        "   'Append blanks 
                 pt_short = pt_short.Substring(0, 3)                   'Now reduce the length 
 
-                BB_wk = WeekNummer(result(i).Item("BB_date"))
+                BB_wk = CType(WeekNummer(CDate(result(i).Item("BB_date"))), String)
 
                 If Not IsDBNull(result(i).Item("Production_Planning")) Then
-                    PP_wk = WeekNummer(result(i).Item("Production_Planning"))
+                    PP_wk = CType(WeekNummer(CDate(result(i).Item("Production_Planning"))), String)
                 Else
                     PP_wk = "-----"
                 End If
 
-                ship_wk = WeekNummer(result(i).Item("Ship_Date"))
+                ship_wk = CType(WeekNummer(CDate(result(i).Item("Ship_Date"))), String)
 
                 '--- limit length of the Remarks
-                rem_short = result(i).Item("Remarks").trim() & "-----------------"   'Append blanks 
+                rem_short = result(i).Item("Remarks").ToString
+                rem_short = rem_short.Trim()
+                rem_short &= "-----------------"   'Append blanks 
                 rem_short = rem_short.Substring(0, 17)                'Now reduce the length 
 
                 '---------------------- Make the string ---------------------------------------
-                str = String.Format(format, WeekNummer(result(i).Item("Booking")), job_nr_short,
+                str = String.Format(format, WeekNummer(CDate(result(i).Item("Booking"))), job_nr_short,
                desc_short, result(i).Item("Length"), result(i).Item("Spent_hrs"),
-               TC_short, prio_short, WeekNummer(result(i).Item("Start_Date")),
+               TC_short, prio_short, WeekNummer(CDate(result(i).Item("Start_Date"))),
                 BB_wk, PP_wk, ship_wk, pt_short, rem_short)
 
                 '---------------For adding separation line betwee different TC----------------
-                If String.Compare(TC_name, result(i).Item("TC")) And myValue <> 3 Then
+                If CBool(String.Compare(TC_name, CType(result(i).Item("TC"), String)) And CInt(CInt(myValue) <> 3)) Then
                     objWriter.Write(Environment.NewLine)
-                    TC_name = result(i).Item("TC")
+                    TC_name = CType(result(i).Item("TC"), String)
                 End If
 
                 objWriter.Write(str + Environment.NewLine)
@@ -791,7 +787,7 @@ Public Class Form1
     End Sub
 
     'Make a copy of the database file
-    Private Sub copy_database()
+    Private Sub Copy_database()
         Dim sss, ssr As String
         sss = PATH + "E-Planning(" + WeekNummer(Now).ToString + ").mdf#"
         ssr = PATH + "E-Planning_log(" + WeekNummer(Now).ToString + ").ldf#"
@@ -805,7 +801,7 @@ Public Class Form1
         End Try
     End Sub
     'Find the database file (different for home and VTK)
-    Private Sub find_database()
+    Private Sub Find_database()
         Try
             'If System.IO.File.Exists(PATH1 + DATABASE_NAME) Then
             '    connectionString = connectionString1
@@ -829,7 +825,7 @@ Public Class Form1
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
         change_job_selection()
     End Sub
-    Private Sub change_job_selection()
+    Private Sub Change_job_selection()
         Dim now_min_2wks As DateTime
         Dim sql_str, filter_str, sort_str As String
 
@@ -925,10 +921,10 @@ Public Class Form1
     Private Sub JobsDataGridView_RowPrePaint(sender As Object, e As DataGridViewRowPrePaintEventArgs) Handles JobsDataGridView.RowPrePaint
 
         If Not IsDBNull(JobsDataGridView.Rows(e.RowIndex).Cells(7).Value) Then
-            If (JobsDataGridView.Rows(e.RowIndex).Cells(7).Value = 100) And (JobsDataGridView.Rows(e.RowIndex).DefaultCellStyle.BackColor <> Color.Red) Then
+            If (CInt(JobsDataGridView.Rows(e.RowIndex).Cells(7).Value) = 100) And (JobsDataGridView.Rows(e.RowIndex).DefaultCellStyle.BackColor <> Color.Red) Then
                 JobsDataGridView.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.Beige
             End If
-            If (JobsDataGridView.Rows(e.RowIndex).Cells(7).Value < 100) And (JobsDataGridView.Rows(e.RowIndex).DefaultCellStyle.BackColor <> Color.Red) And
+            If (CInt(JobsDataGridView.Rows(e.RowIndex).Cells(7).Value) < 100) And (JobsDataGridView.Rows(e.RowIndex).DefaultCellStyle.BackColor <> Color.Red) And
                 (JobsDataGridView.Rows(e.RowIndex).DefaultCellStyle.BackColor <> Color.GreenYellow) Then
                 JobsDataGridView.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.White
             End If

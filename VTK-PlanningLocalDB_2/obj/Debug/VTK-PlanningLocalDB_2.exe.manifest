@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VTK-PlanningLocalDB_2.exe" size="209808">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VTK-PlanningLocalDB_2.exe" size="209336">
       <assemblyIdentity name="VTK-PlanningLocalDB_2" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>YD7CtDzvl9Z4d7Qw0Mn+E3rKGvGFfdOH3RY3XjIxvuw=</dsig:DigestValue>
+        <dsig:DigestValue>pfGnyxEGIce7M29mvD+ixTmz69sYWExUzDTGGoBEUaA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
