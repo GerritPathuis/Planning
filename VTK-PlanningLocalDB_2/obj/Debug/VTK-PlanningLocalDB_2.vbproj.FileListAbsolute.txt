@@ -49,3 +49,4 @@ C:\Repos\Planning\VTK-PlanningLocalDB_2\obj\Debug\VTK-PlanningLocalDB_2.exe.mani
 C:\Repos\Planning\VTK-PlanningLocalDB_2\obj\Debug\VTK-PlanningLocalDB_2.application
 C:\Repos\Planning\VTK-PlanningLocalDB_2\bin\Debug\VTK-PlanningLocalDB_2.exe.CodeAnalysisLog.xml
 C:\Repos\Planning\VTK-PlanningLocalDB_2\bin\Debug\VTK-PlanningLocalDB_2.exe.lastcodeanalysissucceeded
+C:\Repositories\Planning.git\VTK-PlanningLocalDB_2\obj\Debug\VTK-PlanningLocalDB_2.vbproj.CoreCompileInputs.cache
