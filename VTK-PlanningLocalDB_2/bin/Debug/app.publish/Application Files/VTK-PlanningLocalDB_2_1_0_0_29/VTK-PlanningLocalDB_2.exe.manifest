@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="VTK-PlanningLocalDB_2.exe" version="1.0.0.29" publicKeyToken="739facbc5ea3ace1" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="E_plan.ICO" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="VTK-PlanningLocalDB_2" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="VTK-PlanningLocalDB_2.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VTK-PlanningLocalDB_2.exe" size="209336">
+      <assemblyIdentity name="VTK-PlanningLocalDB_2" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>EowijbVKLOFbpQ8XhGS5Q5PKICYmgCGlLqqyGJmXBuw=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="E_plan.ICO" size="766">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>5iuYHHSUZffByuoWi7YjDTYkbCZ7Mp4GhzBTIj3JYsE=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="VTK-PlanningLocalDB_2.exe.config" size="585">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>vJWu1nvycFe7z4eODp/Il6QToSEvDfUovfCy9OdR5+w=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=VTKNET\GerritP" issuerKeyHash="c5feb3bc8872c53769774815f8c680c504726c98" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>+jSFIW1oFo3P9Ix/dCInwcpVnRzx3cq1etxXS+dDOe8=</DigestValue></Reference></SignedInfo><SignatureValue>LgiKr3CETIJgEoWe1H5w/KKnRQkuT7vqW55RCQzESu4iY3/Xx4Ycr0fzlNlhha6yPkP6HgSzsxAZD69mz4JJapVbF81hATfPw8k5Rg1wMiBpuYpZyYY82wvFarSAZyxrCiMSin5qLz/XKXxj0CpWsa+Os/MEY3q3mempeMFApG8=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>36xH9yeAG3NT7/V4SjUQ8fImtXXqI0J/erItd3jpE0DEbKgvpdPqOGiTTRR1WjP2gzPL0hjhm7vvCobPlh3KF/dcQH3Go55MKbpMo68ssQOa65aoisN/e/yWkGCExNjTd8CfXa8tm2UasNDbKfJtOnqvvsQLHSvYutO6xX765pk=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="ef3943e74b57dc7ab5caddf11c9d55cac12722747f8cf4cf8d16686d218534fa" Description="" Url=""><as:assemblyIdentity name="VTK-PlanningLocalDB_2.exe" version="1.0.0.29" publicKeyToken="739facbc5ea3ace1" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=VTKNET\GerritP</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>dgHOja0Lif7u2uY9ShCmY6qR+moz7on+M0gsR8FePfI=</DigestValue></Reference></SignedInfo><SignatureValue>dIHcqdlmoGBBW3je3Y0m/9waDGzr/CHbw+IvzDoV5t8ZfROMvL22haAoYH3bPAnIt9rSqAG0OfR6zosJTFT5pkvNd71++SpShsjpSQhU8qaFOgaEchZKCC0MKkIz5U3ZEcDQbr9wNZnlw/un9H/w70u8nCfPVs11ikk0ffOkizc=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>36xH9yeAG3NT7/V4SjUQ8fImtXXqI0J/erItd3jpE0DEbKgvpdPqOGiTTRR1WjP2gzPL0hjhm7vvCobPlh3KF/dcQH3Go55MKbpMo68ssQOa65aoisN/e/yWkGCExNjTd8CfXa8tm2UasNDbKfJtOnqvvsQLHSvYutO6xX765pk=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB0TCCATqgAwIBAgIQE/hpWfDjHa5OSOGi1Y9MqTANBgkqhkiG9w0BAQsFADAnMSUwIwYDVQQDHhwAVgBUAEsATgBFAFQAXABHAGUAcgByAGkAdABQMB4XDTE4MDUwNDA2MTg0MFoXDTE5MDUwNDEyMTg0MFowJzElMCMGA1UEAx4cAFYAVABLAE4ARQBUAFwARwBlAHIAcgBpAHQAUDCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEA36xH9yeAG3NT7/V4SjUQ8fImtXXqI0J/erItd3jpE0DEbKgvpdPqOGiTTRR1WjP2gzPL0hjhm7vvCobPlh3KF/dcQH3Go55MKbpMo68ssQOa65aoisN/e/yWkGCExNjTd8CfXa8tm2UasNDbKfJtOnqvvsQLHSvYutO6xX765pkCAwEAATANBgkqhkiG9w0BAQsFAAOBgQBOgj8w8HcXXXEZ+yJf/eXnYr7SKnYZbYjKMIsytR1bx3Gm7gXiHotgT3W0pY7PAVxTCiuIAWsP7MpJfSGw1L7AVLPVEB57lqpBlp5CSvbJ2dgNLRSKI6iLSyV8ZIA2SIx1sZtdg0B05cvtnPbadD3us8kvMtN5L0FLzLKRrDqFfA==</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
