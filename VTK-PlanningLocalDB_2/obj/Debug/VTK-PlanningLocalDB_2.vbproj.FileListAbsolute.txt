@@ -47,5 +47,5 @@ C:\Repos\Planning\VTK-PlanningLocalDB_2\obj\Debug\VTK_PlanningLocalDB.Resources.
 C:\Repos\Planning\VTK-PlanningLocalDB_2\obj\Debug\VTK-PlanningLocalDB_2.vbproj.GenerateResource.Cache
 C:\Repos\Planning\VTK-PlanningLocalDB_2\obj\Debug\VTK-PlanningLocalDB_2.exe.manifest
 C:\Repos\Planning\VTK-PlanningLocalDB_2\obj\Debug\VTK-PlanningLocalDB_2.application
-C:\Repos\Planning\VTK-PlanningLocalDB_2\bin\Debug\VTK-PlanningLocalDB_2.exe.CodeAnalysisLog.xml
-C:\Repos\Planning\VTK-PlanningLocalDB_2\bin\Debug\VTK-PlanningLocalDB_2.exe.lastcodeanalysissucceeded
+C:\Repos\Planning\VTK-PlanningLocalDB_2\obj\Debug\VTK-PlanningLocalDB_2.vbprojResolveAssemblyReference.cache
+C:\Repos\Planning\VTK-PlanningLocalDB_2\obj\Debug\VTK-PlanningLocalDB_2.vbproj.CoreCompileInputs.cache

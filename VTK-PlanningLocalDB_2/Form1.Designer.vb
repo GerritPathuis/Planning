@@ -23,16 +23,16 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
-        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
@@ -81,6 +81,19 @@ Partial Class Form1
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
         Me.StaffDataGridView = New System.Windows.Forms.DataGridView()
+        Me.TCDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AutoriteitDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DprtmntDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.WkhrsDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BussyDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BussywkDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Vakwk1DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Vakwk2DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Vakwk3DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Vakwk4DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DescripDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.StaffBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.BindingNavigator2 = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem1 = New System.Windows.Forms.ToolStripButton()
@@ -114,19 +127,6 @@ Partial Class Form1
         Me.JobsTableAdapter = New VTK_PlanningLocalDB._VTK_PlanningDataSetTableAdapters.JobsTableAdapter()
         Me.StaffTableAdapter = New VTK_PlanningLocalDB._VTK_PlanningDataSetTableAdapters.StaffTableAdapter()
         Me.TableAdapterManager1 = New VTK_PlanningLocalDB._VTK_PlanningDataSetTableAdapters.TableAdapterManager()
-        Me.TCDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IdDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.AutoriteitDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DprtmntDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.WkhrsDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BussyDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BussywkDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Vakwk1DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Vakwk2DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Vakwk3DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Vakwk4DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DescripDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -216,9 +216,9 @@ Partial Class Form1
         'BookingDataGridViewTextBoxColumn
         '
         Me.BookingDataGridViewTextBoxColumn.DataPropertyName = "Booking"
-        DataGridViewCellStyle10.Format = "d"
-        DataGridViewCellStyle10.NullValue = Nothing
-        Me.BookingDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle1.Format = "d"
+        DataGridViewCellStyle1.NullValue = Nothing
+        Me.BookingDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle1
         Me.BookingDataGridViewTextBoxColumn.HeaderText = "Booking date"
         Me.BookingDataGridViewTextBoxColumn.Name = "BookingDataGridViewTextBoxColumn"
         Me.BookingDataGridViewTextBoxColumn.ReadOnly = True
@@ -228,9 +228,9 @@ Partial Class Form1
         'Department
         '
         Me.Department.DataPropertyName = "Department"
-        DataGridViewCellStyle11.Format = "N0"
-        DataGridViewCellStyle11.NullValue = "0"
-        Me.Department.DefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle2.Format = "N0"
+        DataGridViewCellStyle2.NullValue = "0"
+        Me.Department.DefaultCellStyle = DataGridViewCellStyle2
         Me.Department.FillWeight = 70.0!
         Me.Department.HeaderText = "Department"
         Me.Department.Name = "Department"
@@ -247,8 +247,8 @@ Partial Class Form1
         'TCDataGridViewTextBoxColumn
         '
         Me.TCDataGridViewTextBoxColumn.DataPropertyName = "TC"
-        DataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.TCDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.TCDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle3
         Me.TCDataGridViewTextBoxColumn.FillWeight = 50.0!
         Me.TCDataGridViewTextBoxColumn.HeaderText = "TC"
         Me.TCDataGridViewTextBoxColumn.Name = "TCDataGridViewTextBoxColumn"
@@ -295,8 +295,8 @@ Partial Class Form1
         'StartdateDataGridViewTextBoxColumn
         '
         Me.StartdateDataGridViewTextBoxColumn.DataPropertyName = "Start_date"
-        DataGridViewCellStyle13.Format = "d"
-        Me.StartdateDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle13
+        DataGridViewCellStyle4.Format = "d"
+        Me.StartdateDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle4
         Me.StartdateDataGridViewTextBoxColumn.HeaderText = "Start_date"
         Me.StartdateDataGridViewTextBoxColumn.Name = "StartdateDataGridViewTextBoxColumn"
         Me.StartdateDataGridViewTextBoxColumn.ToolTipText = "Calculated Engineering start date"
@@ -305,8 +305,8 @@ Partial Class Form1
         'BBdateDataGridViewTextBoxColumn
         '
         Me.BBdateDataGridViewTextBoxColumn.DataPropertyName = "BB_date"
-        DataGridViewCellStyle14.Format = "d"
-        Me.BBdateDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle14
+        DataGridViewCellStyle5.Format = "d"
+        Me.BBdateDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle5
         Me.BBdateDataGridViewTextBoxColumn.HeaderText = "BB_date"
         Me.BBdateDataGridViewTextBoxColumn.Name = "BBdateDataGridViewTextBoxColumn"
         Me.BBdateDataGridViewTextBoxColumn.ToolTipText = "Calculated Engineering finished date, info goes to the Bedrijfsburo"
@@ -315,8 +315,8 @@ Partial Class Form1
         'FinisheddateDataGridViewTextBoxColumn
         '
         Me.FinisheddateDataGridViewTextBoxColumn.DataPropertyName = "Finished_date"
-        DataGridViewCellStyle15.Format = "d"
-        Me.FinisheddateDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle15
+        DataGridViewCellStyle6.Format = "d"
+        Me.FinisheddateDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle6
         Me.FinisheddateDataGridViewTextBoxColumn.HeaderText = "Finished_date"
         Me.FinisheddateDataGridViewTextBoxColumn.Name = "FinisheddateDataGridViewTextBoxColumn"
         Me.FinisheddateDataGridViewTextBoxColumn.ToolTipText = "Actual Engineering finish date"
@@ -343,8 +343,8 @@ Partial Class Form1
         'Production_Planning
         '
         Me.Production_Planning.DataPropertyName = "Production_Planning"
-        DataGridViewCellStyle16.Format = "d"
-        Me.Production_Planning.DefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle7.Format = "d"
+        Me.Production_Planning.DefaultCellStyle = DataGridViewCellStyle7
         Me.Production_Planning.FillWeight = 80.0!
         Me.Production_Planning.HeaderText = "PP_Date"
         Me.Production_Planning.Name = "Production_Planning"
@@ -354,8 +354,8 @@ Partial Class Form1
         'ShipdateDataGridViewTextBoxColumn
         '
         Me.ShipdateDataGridViewTextBoxColumn.DataPropertyName = "Ship_date"
-        DataGridViewCellStyle17.Format = "d"
-        Me.ShipdateDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle17
+        DataGridViewCellStyle8.Format = "d"
+        Me.ShipdateDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle8
         Me.ShipdateDataGridViewTextBoxColumn.FillWeight = 80.0!
         Me.ShipdateDataGridViewTextBoxColumn.HeaderText = "Ship_date"
         Me.ShipdateDataGridViewTextBoxColumn.Name = "ShipdateDataGridViewTextBoxColumn"
@@ -625,6 +625,86 @@ Partial Class Form1
         Me.StaffDataGridView.Size = New System.Drawing.Size(764, 456)
         Me.StaffDataGridView.TabIndex = 0
         '
+        'TCDataGridViewTextBoxColumn2
+        '
+        Me.TCDataGridViewTextBoxColumn2.DataPropertyName = "TC"
+        Me.TCDataGridViewTextBoxColumn2.HeaderText = "TC"
+        Me.TCDataGridViewTextBoxColumn2.Name = "TCDataGridViewTextBoxColumn2"
+        '
+        'IdDataGridViewTextBoxColumn1
+        '
+        Me.IdDataGridViewTextBoxColumn1.DataPropertyName = "Id"
+        Me.IdDataGridViewTextBoxColumn1.HeaderText = "Id"
+        Me.IdDataGridViewTextBoxColumn1.Name = "IdDataGridViewTextBoxColumn1"
+        '
+        'AutoriteitDataGridViewTextBoxColumn1
+        '
+        Me.AutoriteitDataGridViewTextBoxColumn1.DataPropertyName = "Autoriteit"
+        Me.AutoriteitDataGridViewTextBoxColumn1.HeaderText = "Autoriteit"
+        Me.AutoriteitDataGridViewTextBoxColumn1.Name = "AutoriteitDataGridViewTextBoxColumn1"
+        '
+        'DprtmntDataGridViewTextBoxColumn1
+        '
+        Me.DprtmntDataGridViewTextBoxColumn1.DataPropertyName = "Dprtmnt"
+        Me.DprtmntDataGridViewTextBoxColumn1.HeaderText = "Dprtmnt"
+        Me.DprtmntDataGridViewTextBoxColumn1.Name = "DprtmntDataGridViewTextBoxColumn1"
+        '
+        'WkhrsDataGridViewTextBoxColumn1
+        '
+        Me.WkhrsDataGridViewTextBoxColumn1.DataPropertyName = "Wk_hrs"
+        Me.WkhrsDataGridViewTextBoxColumn1.HeaderText = "Wk_hrs"
+        Me.WkhrsDataGridViewTextBoxColumn1.Name = "WkhrsDataGridViewTextBoxColumn1"
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "TC_load"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "TC_load"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        '
+        'BussyDataGridViewTextBoxColumn
+        '
+        Me.BussyDataGridViewTextBoxColumn.DataPropertyName = "Bussy"
+        DataGridViewCellStyle9.Format = "d"
+        Me.BussyDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle9
+        Me.BussyDataGridViewTextBoxColumn.HeaderText = "Bussy"
+        Me.BussyDataGridViewTextBoxColumn.Name = "BussyDataGridViewTextBoxColumn"
+        '
+        'BussywkDataGridViewTextBoxColumn
+        '
+        Me.BussywkDataGridViewTextBoxColumn.DataPropertyName = "Bussy_wk"
+        Me.BussywkDataGridViewTextBoxColumn.HeaderText = "Bussy_wk"
+        Me.BussywkDataGridViewTextBoxColumn.Name = "BussywkDataGridViewTextBoxColumn"
+        '
+        'Vakwk1DataGridViewTextBoxColumn
+        '
+        Me.Vakwk1DataGridViewTextBoxColumn.DataPropertyName = "vak_wk1"
+        Me.Vakwk1DataGridViewTextBoxColumn.HeaderText = "vak_wk1"
+        Me.Vakwk1DataGridViewTextBoxColumn.Name = "Vakwk1DataGridViewTextBoxColumn"
+        '
+        'Vakwk2DataGridViewTextBoxColumn
+        '
+        Me.Vakwk2DataGridViewTextBoxColumn.DataPropertyName = "vak_wk2"
+        Me.Vakwk2DataGridViewTextBoxColumn.HeaderText = "vak_wk2"
+        Me.Vakwk2DataGridViewTextBoxColumn.Name = "Vakwk2DataGridViewTextBoxColumn"
+        '
+        'Vakwk3DataGridViewTextBoxColumn
+        '
+        Me.Vakwk3DataGridViewTextBoxColumn.DataPropertyName = "vak_wk3"
+        Me.Vakwk3DataGridViewTextBoxColumn.HeaderText = "vak_wk3"
+        Me.Vakwk3DataGridViewTextBoxColumn.Name = "Vakwk3DataGridViewTextBoxColumn"
+        '
+        'Vakwk4DataGridViewTextBoxColumn
+        '
+        Me.Vakwk4DataGridViewTextBoxColumn.DataPropertyName = "vak_wk4"
+        Me.Vakwk4DataGridViewTextBoxColumn.HeaderText = "vak_wk4"
+        Me.Vakwk4DataGridViewTextBoxColumn.Name = "Vakwk4DataGridViewTextBoxColumn"
+        '
+        'DescripDataGridViewTextBoxColumn
+        '
+        Me.DescripDataGridViewTextBoxColumn.DataPropertyName = "Descrip"
+        Me.DescripDataGridViewTextBoxColumn.HeaderText = "Descrip"
+        Me.DescripDataGridViewTextBoxColumn.Name = "DescripDataGridViewTextBoxColumn"
+        '
         'StaffBindingSource
         '
         Me.StaffBindingSource.DataMember = "Staff"
@@ -783,9 +863,9 @@ Partial Class Form1
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(25, 76)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(51, 18)
+        Me.Label3.Size = New System.Drawing.Size(269, 18)
         Me.Label3.TabIndex = 2
-        Me.Label3.Text = "Label3"
+        Me.Label3.Text = "Files in C:\KenPlan_database_directory\"
         '
         'Label2
         '
@@ -879,86 +959,6 @@ Partial Class Form1
         Me.TableAdapterManager1.JobsTableAdapter = Me.JobsTableAdapter
         Me.TableAdapterManager1.StaffTableAdapter = Me.StaffTableAdapter
         Me.TableAdapterManager1.UpdateOrder = VTK_PlanningLocalDB._VTK_PlanningDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        '
-        'TCDataGridViewTextBoxColumn2
-        '
-        Me.TCDataGridViewTextBoxColumn2.DataPropertyName = "TC"
-        Me.TCDataGridViewTextBoxColumn2.HeaderText = "TC"
-        Me.TCDataGridViewTextBoxColumn2.Name = "TCDataGridViewTextBoxColumn2"
-        '
-        'IdDataGridViewTextBoxColumn1
-        '
-        Me.IdDataGridViewTextBoxColumn1.DataPropertyName = "Id"
-        Me.IdDataGridViewTextBoxColumn1.HeaderText = "Id"
-        Me.IdDataGridViewTextBoxColumn1.Name = "IdDataGridViewTextBoxColumn1"
-        '
-        'AutoriteitDataGridViewTextBoxColumn1
-        '
-        Me.AutoriteitDataGridViewTextBoxColumn1.DataPropertyName = "Autoriteit"
-        Me.AutoriteitDataGridViewTextBoxColumn1.HeaderText = "Autoriteit"
-        Me.AutoriteitDataGridViewTextBoxColumn1.Name = "AutoriteitDataGridViewTextBoxColumn1"
-        '
-        'DprtmntDataGridViewTextBoxColumn1
-        '
-        Me.DprtmntDataGridViewTextBoxColumn1.DataPropertyName = "Dprtmnt"
-        Me.DprtmntDataGridViewTextBoxColumn1.HeaderText = "Dprtmnt"
-        Me.DprtmntDataGridViewTextBoxColumn1.Name = "DprtmntDataGridViewTextBoxColumn1"
-        '
-        'WkhrsDataGridViewTextBoxColumn1
-        '
-        Me.WkhrsDataGridViewTextBoxColumn1.DataPropertyName = "Wk_hrs"
-        Me.WkhrsDataGridViewTextBoxColumn1.HeaderText = "Wk_hrs"
-        Me.WkhrsDataGridViewTextBoxColumn1.Name = "WkhrsDataGridViewTextBoxColumn1"
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "TC_load"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "TC_load"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        '
-        'BussyDataGridViewTextBoxColumn
-        '
-        Me.BussyDataGridViewTextBoxColumn.DataPropertyName = "Bussy"
-        DataGridViewCellStyle18.Format = "d"
-        Me.BussyDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle18
-        Me.BussyDataGridViewTextBoxColumn.HeaderText = "Bussy"
-        Me.BussyDataGridViewTextBoxColumn.Name = "BussyDataGridViewTextBoxColumn"
-        '
-        'BussywkDataGridViewTextBoxColumn
-        '
-        Me.BussywkDataGridViewTextBoxColumn.DataPropertyName = "Bussy_wk"
-        Me.BussywkDataGridViewTextBoxColumn.HeaderText = "Bussy_wk"
-        Me.BussywkDataGridViewTextBoxColumn.Name = "BussywkDataGridViewTextBoxColumn"
-        '
-        'Vakwk1DataGridViewTextBoxColumn
-        '
-        Me.Vakwk1DataGridViewTextBoxColumn.DataPropertyName = "vak_wk1"
-        Me.Vakwk1DataGridViewTextBoxColumn.HeaderText = "vak_wk1"
-        Me.Vakwk1DataGridViewTextBoxColumn.Name = "Vakwk1DataGridViewTextBoxColumn"
-        '
-        'Vakwk2DataGridViewTextBoxColumn
-        '
-        Me.Vakwk2DataGridViewTextBoxColumn.DataPropertyName = "vak_wk2"
-        Me.Vakwk2DataGridViewTextBoxColumn.HeaderText = "vak_wk2"
-        Me.Vakwk2DataGridViewTextBoxColumn.Name = "Vakwk2DataGridViewTextBoxColumn"
-        '
-        'Vakwk3DataGridViewTextBoxColumn
-        '
-        Me.Vakwk3DataGridViewTextBoxColumn.DataPropertyName = "vak_wk3"
-        Me.Vakwk3DataGridViewTextBoxColumn.HeaderText = "vak_wk3"
-        Me.Vakwk3DataGridViewTextBoxColumn.Name = "Vakwk3DataGridViewTextBoxColumn"
-        '
-        'Vakwk4DataGridViewTextBoxColumn
-        '
-        Me.Vakwk4DataGridViewTextBoxColumn.DataPropertyName = "vak_wk4"
-        Me.Vakwk4DataGridViewTextBoxColumn.HeaderText = "vak_wk4"
-        Me.Vakwk4DataGridViewTextBoxColumn.Name = "Vakwk4DataGridViewTextBoxColumn"
-        '
-        'DescripDataGridViewTextBoxColumn
-        '
-        Me.DescripDataGridViewTextBoxColumn.DataPropertyName = "Descrip"
-        Me.DescripDataGridViewTextBoxColumn.HeaderText = "Descrip"
-        Me.DescripDataGridViewTextBoxColumn.Name = "DescripDataGridViewTextBoxColumn"
         '
         'Form1
         '

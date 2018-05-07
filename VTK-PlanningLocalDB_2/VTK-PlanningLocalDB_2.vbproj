@@ -13,17 +13,18 @@
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\VTK-Plan-LocalDB_2\Publish\</PublishUrl>
+    <PublishUrl>N:\Engineering\VBasic\VTK-Plan-LocalDB_2\Publish\</PublishUrl>
     <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>25</ApplicationRevision>
+    <InstallUrl>\\vtkfile\data2\Engineering\Vbasic\VTK-Plan-LocalDB_2\Publish\</InstallUrl>
+    <ApplicationRevision>29</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -66,7 +67,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>AA1FD52C9D7E6E9540BB8AA944F1E7CF03FDD26A</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>0F61D5DB2454611DB7379F1B54C3B29186658034</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>
