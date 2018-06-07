@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="VTK-PlanningLocalDB_2.exe" version="1.0.0.29" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="VTK-PlanningLocalDB_2.exe" version="1.0.0.31" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <description asmv2:iconFile="E_plan.ICO" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>EowijbVKLOFbpQ8XhGS5Q5PKICYmgCGlLqqyGJmXBuw=</dsig:DigestValue>
+        <dsig:DigestValue>WcPeNCJ8ZXPz8t76fCHDHkfxI/0iDMXzfbk3BsGsovU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -63,13 +63,13 @@
       <dsig:DigestValue>5iuYHHSUZffByuoWi7YjDTYkbCZ7Mp4GhzBTIj3JYsE=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="VTK-PlanningLocalDB_2.exe.config" size="585">
+  <file name="VTK-PlanningLocalDB_2.exe.config" size="555">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>vJWu1nvycFe7z4eODp/Il6QToSEvDfUovfCy9OdR5+w=</dsig:DigestValue>
+      <dsig:DigestValue>lz70lT/yNmdZA6fdOI/NCFEbYIzN11/jrwAHZNFiExM=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

@@ -55,7 +55,6 @@ C:\Repos\E_Planning\VTK-PlanningLocalDB_2\bin\Debug\VTK-PlanningLocalDB_2.applic
 C:\Repos\E_Planning\VTK-PlanningLocalDB_2\bin\Debug\VTK-PlanningLocalDB_2.exe
 C:\Repos\E_Planning\VTK-PlanningLocalDB_2\bin\Debug\VTK-PlanningLocalDB_2.pdb
 C:\Repos\E_Planning\VTK-PlanningLocalDB_2\bin\Debug\VTK-PlanningLocalDB_2.xml
-C:\Repos\E_Planning\VTK-PlanningLocalDB_2\obj\Debug\VTK-PlanningLocalDB_2.vbprojResolveAssemblyReference.cache
 C:\Repos\E_Planning\VTK-PlanningLocalDB_2\obj\Debug\Interop.Office.dll
 C:\Repos\E_Planning\VTK-PlanningLocalDB_2\obj\Debug\VTK-PlanningLocalDB_2.vbproj.ResolveComReference.cache
 C:\Repos\E_Planning\VTK-PlanningLocalDB_2\obj\Debug\VTK_PlanningLocalDB.Form1.resources
@@ -67,3 +66,4 @@ C:\Repos\E_Planning\VTK-PlanningLocalDB_2\obj\Debug\VTK-PlanningLocalDB_2.applic
 C:\Repos\E_Planning\VTK-PlanningLocalDB_2\obj\Debug\VTK-PlanningLocalDB_2.exe
 C:\Repos\E_Planning\VTK-PlanningLocalDB_2\obj\Debug\VTK-PlanningLocalDB_2.xml
 C:\Repos\E_Planning\VTK-PlanningLocalDB_2\obj\Debug\VTK-PlanningLocalDB_2.pdb
+C:\Repos\E_Planning\VTK-PlanningLocalDB_2\obj\Debug\VTK-PlanningLocalDB_2.vbprojAssemblyReference.cache

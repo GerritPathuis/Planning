@@ -11,8 +11,9 @@
     <AssemblyName>VTK-PlanningLocalDB_2</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
     <PublishUrl>N:\Engineering\VBasic\VTK-Plan-LocalDB_2\Publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Unc</InstallFrom>
@@ -23,8 +24,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>\\vtkfile\data2\Engineering\Vbasic\VTK-Plan-LocalDB_2\Publish\</InstallUrl>
-    <ApplicationRevision>30</ApplicationRevision>
+    <InstallUrl>\\DCF1\data2%24\Engineering\Vbasic\VTK-Plan-LocalDB_2\Publish\</InstallUrl>
+    <ApplicationRevision>32</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
